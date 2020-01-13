@@ -68,6 +68,7 @@
   ini_file:
       dest: "/etc/mysql/my.cnf"
       option: "{{ item.option }}"
+      state: "{{ item.state | default('present') }}"
       section: "{{ item.section | default('mysqld') }}"
       value: "{{ item.value }}"
   notify:
